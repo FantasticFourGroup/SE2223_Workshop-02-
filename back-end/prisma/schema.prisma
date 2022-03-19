@@ -17,7 +17,6 @@ model Person {
 
 model Grudge {
     id          Int      @id @default(autoincrement())
-    name        String
     description String
     rank        Int      @unique
     person_id   Int
