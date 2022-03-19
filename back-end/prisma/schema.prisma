@@ -1,0 +1,27 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DB_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model Person {
+    id        Int      @id @default(autoincrement())
+    name      String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    Grudge    Grudge[]
+}
+
+model Grudge {
+    id          Int      @id @default(autoincrement())
+    name        String
+    description String
+    rank        Int      @unique
+    person_id   Int
+    person      Person   @relation(fields: [person_id], references: [id])
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+}
