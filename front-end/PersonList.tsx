@@ -7,7 +7,6 @@ interface PersonListProps {
 }
 
 export default function PersonList({ list }: PersonListProps) {
-  console.log(list, list.length < 1);
   if (list.length < 1) {
     return <></>;
   }
@@ -15,7 +14,7 @@ export default function PersonList({ list }: PersonListProps) {
   return (
     <div>
       {list.map((person) => (
-        <PersonView person={person} />
+        <PersonView person={person} key={person.name} />
       ))}
     </div>
   );
