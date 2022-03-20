@@ -1,5 +1,5 @@
 export default interface Person {
   name: string;
-  description: string;
+  sin: string;
   rank: number;
 }

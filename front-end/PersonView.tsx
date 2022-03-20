@@ -20,7 +20,10 @@ function personView({ person }: PersonProps) {
     >
       <Text style={{ color: "red", fontSize: 20 }}>Rank: {person.rank}</Text>
       <Text style={{ fontWeight: "bold", color: "grey" }}>{person.name}</Text>
-      <Text>{person.description}</Text>
+      <Text style={{ marginTop: 30 }}>SIN:</Text>
+      <Text style={{ color: "orange", fontWeight: "900" }}>
+        {person.sin.toLocaleUpperCase()}
+      </Text>
     </View>
   );
 }
