@@ -1,4 +1,6 @@
 import React from "react";
+import { View, Text } from "react-native";
+import { Paragraph } from "react-native-paper";
 import Person from "./Person";
 
 interface PersonProps {
@@ -7,25 +9,19 @@ interface PersonProps {
 
 function personView({ person }: PersonProps) {
   return (
-    <div
+    <View
       style={{
-        border: "solid",
-        paddingLeft: "10px",
-        borderRadius: "20px",
-        marginTop: "10px",
-        marginBottom: "10px",
+        margin: 20,
+        alignItems: "center",
+        padding: 20,
+        borderWidth: 2,
+        borderRadius: 30,
       }}
     >
-      <div>
-        <h1 style={{ color: "red" }}>Rank: {person.rank}</h1>
-      </div>
-      <div>
-        <h2>{person.name}</h2>
-      </div>
-      <div>
-        <h3>{person.description}</h3>
-      </div>
-    </div>
+      <Text style={{ color: "red", fontSize: 20 }}>Rank: {person.rank}</Text>
+      <Text style={{ fontWeight: "bold", color: "grey" }}>{person.name}</Text>
+      <Text>{person.description}</Text>
+    </View>
   );
 }
 
