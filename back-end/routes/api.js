@@ -17,29 +17,19 @@ router
         select: {
             description: true,
             rank: true,
-            person: true
+            person: {
+                select: {
+                    name: true
+                }
+            }
         }
     }).then((result) => {
-        res.json({ sucess: result });
+        res.json({
+            sucess: result.map((item) => {
+                const { rank, person, description } = item;
+                return { rank, description, name: person.name };
+            })
+        });
     }).catch((error) => res.json({ error }));
 });
 exports.default = router;
-// .get("/", (req, res) => {
-//     prisma.grudge.findMany({
-//         orderBy: {
-//             rank: 'asc'
-//         },
-//         select: {
-//             description: true,
-//             rank: true,
-//             person: true
-//         }
-//     }).then((e) => {
-//         e.forEach((x) => {
-//             console.log(x.rank)
-//             console.log(x.person.name)
-//             console.log(x.description)
-//         })
-//         res.send(e);
-//     }).catch((e) => console.error(e))
-// })

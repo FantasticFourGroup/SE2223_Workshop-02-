@@ -15,10 +15,19 @@ router
             select: {
                 description: true,
                 rank: true,
-                person: true
+                person: {
+                    select: {
+                        name: true
+                    }
+                }
             }
         }).then((result) => {
-            res.json({ sucess: result });
+            res.json({
+                sucess: result.map((item) => {
+                    const { rank, person, description } = item
+                    return { rank, description, name: person.name }
+                })
+            });
         }).catch((error) => res.json({ error }))
     })
 
