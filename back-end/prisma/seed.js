@@ -5,8 +5,7 @@ const db = new client_1.PrismaClient();
 const persons = [
     db.person.create({
         data: {
-            name: 'Wil Wheaton',
-            Grudge: {
+            name: 'The Cafeteria Ladies', Grudge: {
                 create: [{
                         description: 'refused to tell him what was in the chili',
                         rank: 1,
@@ -16,18 +15,7 @@ const persons = [
     }),
     db.person.create({
         data: {
-            name: 'Billy Sparks',
-            Grudge: {
-                create: [{
-                        description: "was informing Amy of Sheldon's list of mortal enemies",
-                        rank: 2,
-                    }]
-            }
-        }
-    }),
-    db.person.create({
-        data: {
-            name: 'Brent Spiner', Grudge: {
+            name: 'Joel Schumacher', Grudge: {
                 create: [{
                         description: 'worked on Batman Forever and Batman & Robin',
                         rank: 3,
@@ -37,7 +25,17 @@ const persons = [
     }),
     db.person.create({
         data: {
-            name: 'Tam Nguyen', Grudge: {
+            name: 'Penny', Grudge: {
+                create: [{
+                        description: "was informing Amy of Sheldon's list of mortal enemies",
+                        rank: 2,
+                    }]
+            }
+        }
+    }),
+    db.person.create({
+        data: {
+            name: 'Jim Henson', Grudge: {
                 create: [{
                         description: 'creating Big Bird because it haunted him in his sleep',
                         rank: 4,
@@ -47,7 +45,7 @@ const persons = [
     }),
     db.person.create({
         data: {
-            name: 'Leslie Winkle', Grudge: {
+            name: 'Georgie Cooper', Grudge: {
                 create: [{
                         description: 'peeing in his shampoo bottle',
                         rank: 5,
@@ -57,7 +55,7 @@ const persons = [
     }),
     db.person.create({
         data: {
-            name: 'Georgie Cooper', Grudge: {
+            name: 'Leslie Winkle', Grudge: {
                 create: [{
                         description: 'shared different scientific views',
                         rank: 6,
@@ -67,7 +65,7 @@ const persons = [
     }),
     db.person.create({
         data: {
-            name: 'Jim Henson', Grudge: {
+            name: 'Tam Nguyen', Grudge: {
                 create: [{
                         description: "when Sheldon left Texas for California, Tam didn't follow him",
                         rank: 7,
@@ -77,7 +75,7 @@ const persons = [
     }),
     db.person.create({
         data: {
-            name: 'Joel Schumacher', Grudge: {
+            name: 'Brent Spiner', Grudge: {
                 create: [{
                         description: "Opened Sheldon's 'Star Trek' character collectible, ruining its integrity",
                         rank: 8,
@@ -87,7 +85,8 @@ const persons = [
     }),
     db.person.create({
         data: {
-            name: 'Penny', Grudge: {
+            name: 'Billy Sparks',
+            Grudge: {
                 create: [{
                         description: 'Putting dog poop on the handlebars of his bike',
                         rank: 9,
@@ -97,7 +96,8 @@ const persons = [
     }),
     db.person.create({
         data: {
-            name: 'The Cafeteria Ladies', Grudge: {
+            name: 'Wil Wheaton',
+            Grudge: {
                 create: [{
                         description: 'failed to show up to the Star Trek convention',
                         rank: 10,
