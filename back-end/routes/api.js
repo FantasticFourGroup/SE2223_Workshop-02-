@@ -7,15 +7,27 @@ const express_1 = __importDefault(require("express"));
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 const router = express_1.default.Router();
-router
-    .post("/v1", (req, res) => {
-    console.log('called');
+const query = () => prisma.grudge.findMany({
+    orderBy: {
+        rank: 'asc'
+    },
+    select: {
+        sin: true,
+        rank: true,
+        person: {
+            select: {
+                name: true
+            }
+        }
+    }
+});
+router.use("/", (req, res) => {
     prisma.grudge.findMany({
         orderBy: {
             rank: 'asc'
         },
         select: {
-            description: true,
+            sin: true,
             rank: true,
             person: {
                 select: {
@@ -23,11 +35,24 @@ router
                 }
             }
         }
-    }).then((result) => {
+    }).then((e) => console.log(e));
+})
+    .post("/v1", (req, res) => {
+    query().then((result) => {
         res.json({
             sucess: result.map((item) => {
-                const { rank, person, description } = item;
-                return { rank, description, name: person.name };
+                const { rank, person, sin } = item;
+                return { rank, description: sin, name: person.name };
+            })
+        });
+    }).catch((error) => res.json({ error }));
+})
+    .post("/v2", (req, res) => {
+    query().then((result) => {
+        res.json({
+            sucess: result.map((item) => {
+                const { rank, person, sin } = item;
+                return { rank, sin, name: person.name };
             })
         });
     }).catch((error) => res.json({ error }));
