@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
-import { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Provider as PaperProvider } from "react-native-paper";
 import Person from "./Person";
 import PersonList from "./PersonList";
 import { version } from "./package.json";
@@ -24,20 +25,14 @@ export default function App() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <h1>SHELDON's ENEMY LIST</h1>
-      <h4>App version: {version}</h4>
-      <PersonList list={data} />
-    </View>
+    <PaperProvider>
+      <ScrollView>
+        <Text style={{ textAlign: "center", marginTop: 30 }}>
+          SHELDON's ENEMY LIST
+        </Text>
+        <Text style={{ textAlign: "center" }}>App version: {version}</Text>
+        <PersonList list={data} />
+      </ScrollView>
+    </PaperProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
