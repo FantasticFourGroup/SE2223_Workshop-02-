@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use((0, cors_1.default)())
     .use('/api', api_1.default)
     .get('/', (req, res) => {
-    res.send('Well done!');
+    res.send('<h1>Well done!<h1>');
 });
 app.listen(PORT, () => {
     console.log(`Open http://localhost:${PORT}`);
