@@ -23,25 +23,3 @@ router
     })
 
 export default router;
-
-
-
-// .get("/", (req, res) => {
-//     prisma.grudge.findMany({
-//         orderBy: {
-//             rank: 'asc'
-//         },
-//         select: {
-//             description: true,
-//             rank: true,
-//             person: true
-//         }
-//     }).then((e) => {
-//         e.forEach((x) => {
-//             console.log(x.rank)
-//             console.log(x.person.name)
-//             console.log(x.description)
-//         })
-//         res.send(e);
-//     }).catch((e) => console.error(e))
-// })
