@@ -8,10 +8,11 @@ const PORT = process.env.PORT || 3000;
 
 
 app.use(cors())
-    .use('/api', apiRoute)
     .get('/', (req, res) => {
         res.send('<h1>Well done!<h1>');
     })
+    .use('/api', apiRoute)
+
 
 
 app.listen(PORT, () => {
